@@ -57,8 +57,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void addCard() async {
     var card = await gameCardGiver.getCard();
+    debugPrint("main:60 got card $card");
     if (card == null) {
-      if (!mounted) throw Exception();
+      if (!mounted) throw TypeError();
       ScaffoldMessenger.of(
         context,
       ).showSnackBar(const SnackBar(content: Text("No more cards available")));

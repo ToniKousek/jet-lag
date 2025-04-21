@@ -17,24 +17,24 @@ class DatabaseHandler {
       onCreate: (db, version) {
         db.execute(
           "CREATE TABLE cards (id INTEGER PRIMARY KEY, title TEXT, description TEXT, casting_cost TEXT, type INT)"
-          "CREATE TABLE hand (id INTEGER PRIMARY KEY, card_id INTEGER, FOREIGN KEY(card_id) REFERENCES cards(id))",
+          "CREATE TABLE IF NOT EXISTS hand (id INTEGER PRIMARY KEY AUTOINCREMENT, hand_id INTEGER, card_id INTEGER, FOREIGN KEY(card_id) REFERENCES cards(id))",
         );
         GameCardGiver.get().addCards(mainJetLagHideSeekGameCards);
       },
       onUpgrade: (db, oldVersion, newVersion) {
-        db.execute("DROP TABLE cards");
+        db.execute("DROP TABLE hand");
         db.execute(
           "CREATE TABLE IF NOT EXISTS cards (id INTEGER PRIMARY KEY, title TEXT, description TEXT, casting_cost TEXT, type INT)",
         );
         db.execute(
-          "CREATE TABLE IF NOT EXISTS hand (id INTEGER PRIMARY KEY, card_id INTEGER, FOREIGN KEY(card_id) REFERENCES cards(id))",
+          "CREATE TABLE IF NOT EXISTS hand (id INTEGER PRIMARY KEY AUTOINCREMENT, hand_id INTEGER, card_id INTEGER, FOREIGN KEY(card_id) REFERENCES cards(id))",
         );
         db.execute("DELETE FROM hand;");
         db.execute("DELETE FROM cards;");
         GameCardGiver.get().addCards(mainJetLagHideSeekGameCards);
         debugPrint("Upgraded");
       },
-      version: 7,
+      version: 8,
     );
 
     return _db!;
@@ -69,7 +69,7 @@ class DatabaseHandler {
     List<Map<String, Object?>> gottenCards = (await (await db).query(
       "hand",
       columns: ["card_id"],
-      where: "id = ?",
+      where: "hand_id = ?",
       whereArgs: [0],
     ));
 
@@ -90,7 +90,7 @@ class DatabaseHandler {
   }
 
   void putCardInHand(GameCard card) async {
-    (await db).insert("hand", {"id": 0, "card_id": card.id});
+    (await db).insert("hand", {"hand_id": 0, "card_id": card.id});
   }
 
   void deleteCardFromHand(GameCard card) async {

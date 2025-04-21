@@ -33,8 +33,7 @@ class GameCardGiver {
         _curseCards.add(card);
         break;
       default:
-        //TODO: FIX
-        debugPrint("TODO: FIX");
+        debugPrint("Found card without type: $card has type:${card.type}");
     }
 
     _cards.add(card);
