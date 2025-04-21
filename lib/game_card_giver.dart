@@ -149,7 +149,7 @@ final List<GameCard> mainJetLagHideSeekGameCards = [
     title: "Čarolija nesigurnog izabiranja",
     icon: Icons.star,
     description:
-        "Odaberite tri pitanja u različitim kategorijama. Tragatelji ne mogu postavljati ta pitanja do kraja vašeg trčanja.",
+        "Odaberite tri pitanja u različitim kategorijama. Tragači ne mogu postavljati ta pitanja do kraja vašeg trčanja.",
     castingCost: "(Odbaci sve karte u ruci.)",
     type: GameCardType.curse,
   ),
@@ -177,11 +177,11 @@ final List<GameCard> mainJetLagHideSeekGameCards = [
     type: GameCardType.curse,
   ),
   GameCard(
-    title: "Izazov nevođenog turista",
+    title: "Izazov ne vođenog turista",
     icon: Icons.star,
     description:
-        "Pošaljite tražiteljima nezumiranu Google Street View sliku s ulice unutar 50m od mjesta gdje se sada nalaze. Snimka mora biti paralelna s horizontom i uključivati ​​barem jednu građevinu koju je izgradio čovjek osim ceste. Bez korištenja interneta za istraživanje, moraju pronaći ono što ste im poslali u stvarnom životu prije nego što mogu koristiti prijevoz ili postaviti drugo pitanje. Moraju poslati sliku skrivaču na provjeru.",
-    castingCost: "(Odbaci vremensku bonusnu karticu)",
+        "Pošaljite tražiteljima ne zumiranu Google Street View sliku s ulice unutar 50m od mjesta gdje se sada nalaze. Snimka mora biti paralelna s horizontom i uključivati ​​barem jednu građevinu koju je izgradio čovjek osim ceste. Bez korištenja interneta za istraživanje, moraju pronaći ono što ste im poslali u stvarnom životu prije nego što mogu koristiti prijevoz ili postaviti drugo pitanje. Moraju poslati sliku skrivaču na provjeru.",
+    castingCost: "(Odbaci karticu vremenskog bonusa)",
     type: GameCardType.curse,
   ),
   GameCard(
@@ -193,7 +193,7 @@ final List<GameCard> mainJetLagHideSeekGameCards = [
     type: GameCardType.curse,
   ),
   GameCard(
-    title: "Izazov preumjerenog skupljača",
+    title: "Izazov neumjerenog skupljača",
     icon: Icons.star,
     description:
         "Skrivači odabiru jednu lokaciju udaljenu maksimalno 250m od trenutne lokacije tragača. Tragači trebaju tamo otići i provesti 5min i uzeti suvenir s te lokacije. Ako na kraju traganja ne daju skrivačima taj suvenir, dodaje se 15min na vrijeme skrivača.",
